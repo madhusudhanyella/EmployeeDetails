@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myModule">
+<head>
+    <link href="assets/styles.css" rel="stylesheet"/>
+     <script src="assets/jquery-3.1.1.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"/>   
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <base href="/"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-route.min.js"></script>
+	<script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="app.js"></script>
+	<script src="components/createEmployee/createEmployeeController.js"></script>
+    <script src="components/deleteEmployee/deleteEmployeeController.js"></script>
+    <script src="components/editEmployee/editEmployeeController.js"></script>
+    <script src="components/home/homeController.js"></script>
+    <script src="components/showEmployees/showEmployeesController.js"></script>
+    
+</head>
+<body>
+    <table style="font-family:Arial">
+        <tr>
+            <td colspan="2" class="header">
+                <h1>Employee Details Application</h1>
+            </td>
+        </tr>
+        <tr>
+            <td class="leftMenu">
+                <a href="home"><span class="btn btn-primary glyphicon glyphicon-home"></span> Home</a>
+                <br/>
+                <br/>
+                <a  href="showEmployees"><span class="btn btn-primary glyphicon glyphicon-user"></span> Show Employees</a>
+                <br/>
+                <br/>
+                <a href="createEmployee"><span class="btn btn-primary glyphicon glyphicon-plus"></span> Create Employee</a> 
+                <br/>  
+                <br/>             
+                <a  href="editEmployee"><span class="btn btn-primary glyphicon glyphicon-pencil"></span> Edit or Update</a>
+                <br/>
+                <br/>
+                <a  href="deleteEmployee"><span class="btn btn-primary glyphicon glyphicon-remove"></span> Delete</a>
+            </td>
+            <td class="mainContent">
+                <div ng-view></div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="footer">
+                <b>Advanced Business and Healthcare Solutions @2017</b>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
