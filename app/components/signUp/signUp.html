@@ -1,0 +1,67 @@
+<form name="signUpForm" class="col-sm-offset-3 col-sm-6" style="color: white">
+    <br/>
+    <div>
+         <strong><h4>Sign Up&nbsp;</h4></strong><hr/> 
+	</div>
+    <div class="row">
+        <div class="col-sm-6">
+            Name
+        </div>
+        <div class="col-sm-6">
+            <input type="text" ng-model="name" name="n" class="form-control" placeholder="Enter name" required/>
+            <span style="color: red" ng-show="signUpForm.n.$touched && signUpForm.n.$error.required">The name is required</span>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-sm-6"> 
+            Username 
+        </div> 
+        <div class="col-sm-6"> 
+            <input type="text" ng-model="Uname" name="Un" class="form-control" placeholder="Enter username" required/>
+            <span style="color: red" ng-show="signUpForm.Un.$touched && signUpForm.Un.$error.required">The username is required</span>
+            <span ng-show="Uname" style="color: red">{{msg}}</span>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-sm-6">
+            Email
+        </div>
+        <div class="col-sm-6">
+            <input type="email" ng-model="Uemail" name="Ue" class="form-control" ng-="msgEmail=null" placeholder="Enter email" required/>
+            <span style="color: red" ng-show="signUpForm.Ue.$touched && signUpForm.Ue.$error.required">The email is required</span>
+            <span style="color: red" ng-show="signUpForm.Ue.$error.email">Not valid Email</span>
+            <span ng-show="Uemail" style="color: red">{{msgEmail}}</span>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-sm-6">
+            Password
+        </div>
+        <div class="col-sm-6">
+            <input type="password" ng-model="Upassword" name="password" placeholder="Type password" class="form-control" required/>
+            <span style="color: red" ng-show="signUpForm.password.$touched && signUpForm.password.$error.required">The password is required</span>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-sm-6">
+            Confirm Password
+        </div>
+        <div class="col-sm-6">
+            <input type="password" ng-model="UCpassword" placeholder="Retype password" name="Cpassword" class="form-control" required/>
+            <span style="color: red" ng-show="signUpForm.Cpassword.$touched && signUpForm.Cpassword.$error.required">The confirm password is required</span>
+            <span style="color: red" ng-show="Upassword !== UCpassword">Password mismatch</span>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-6">
+            <input type="button" value="Sign Up" class="btn btn-primary" ng-click="signUp()" ng-disabled="signUpForm.$invalid"/>
+            <span style="color: red" ng-disabled="signUpForm.$invalid"></span>
+        </div>
+    </div>
+    <br/>
+</form>

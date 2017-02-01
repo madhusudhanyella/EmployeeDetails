@@ -1,0 +1,39 @@
+<form ng-hide="logInFlag" style="color:white" class="col-md-offset-3 col-md-6 col-sm-6 col-sm-offset-3" name="logInForm">
+<br/>
+<div>
+    <strong><h4>Sign in&nbsp;</h4></strong>
+    <hr/>
+</div>
+<div class="well well-sm" ng-show="msg" align="center"  style="color: whitesmoke;background-color: lightcoral">
+     <span>{{msg}}</span>
+</div>
+<div class="row">
+    <div class="col-sm-6">
+        Username
+    </div>
+    <div class="col-sm-6">
+        <input name="un" type="text" class="form-control" ng-model="username" placeholder="Enter Username" required/>
+        <span style="color: red" ng-show="logInForm.un.$touched && logInForm.un.$error.required">The username is required</span>
+</div>
+</div>
+<br/>
+<div class="row">
+    <div class="col-sm-6">
+        Password
+    </div>
+    <div class="col-sm-6">
+        <input name="pw" type="password" class="form-control" ng-model="password" placeholder="Enter Password" required/>
+        <span style="color: red" ng-show="logInForm.pw.$touched && logInForm.pw.$error.required">The password is required</span>
+</div>
+</div>
+<br/>
+<div class="row">
+    <div class="col-md-12">
+        <span class="pull-right">
+            <input  type="button" ng-click="Reset()" value="Reset" class="btn btn-default"/>
+            <input ng-disabled="logInForm.$invalid" type="button" ng-click="Submit()"  value="Submit" class="btn btn-success"/>
+        </span>
+    </div>
+</div>
+<br/>
+</form>

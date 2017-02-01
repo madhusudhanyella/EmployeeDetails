@@ -1,0 +1,131 @@
+<form name="createForm" style="color: white" class="col-sm-offset-3 col-sm-6">
+    <h3>Create Employee</h3>
+    <hr/>
+    <div class="row">
+        <div class="col-sm-6">
+            Name
+        </div>
+        <div class="col-sm-6">
+            <input type="text" name="nameG" class="form-control" ng-model="nameGiven" placeholder="Enter Name here" required/>
+            <span ng-show="createForm.nameG.$touched && createForm.nameG.$invalid" style="color: red">The name is required.</span>
+            <!--<span class="alert" style="color: red" ng-hide="nameGiven">Name is needed</span>-->
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-sm-6">
+            Address
+        </div>
+        <div class="col-sm-6">
+             <input type="text" name="addressG" class="form-control" ng-model="addressGiven" placeholder="Enter Address here" required/>
+             <span ng-show="createForm.addressG.$touched && createForm.addressG.$invalid" style="color: red">The address is required.</span>
+             <!--<span class="alert" style="color: red" ng-hide="addressGiven">Address is needed</span>-->
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-sm-6">
+            Salary
+        </div>
+        <div class="col-sm-6">
+            <input type="text" name="salaryG" class="form-control" ng-pattern="/^[0-9]{1,7}$/" ng-model="salaryGiven" placeholder="Enter Salary here" required/>
+            <span  ng-show="createForm.salaryG.$error.pattern" style="color: red">Not valid number!  </span>
+            <span ng-show="createForm.salaryG.$touched && createForm.salaryG.$error.required" style="color: red">The salary is required.</span>
+        </div>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-sm-6">
+            Gender
+        </div>
+        <div class="col-sm-6">
+            <div name="genderG">
+                <label class="radio-inline" ><input value="Male" ng-required="!gender" ng-model="genderGiven" type="radio" name="gender" >Male</label>
+                <label class="radio-inline" ><input value="Female" ng-required="!gender" ng-model="genderGiven" type="radio" name="gender">Female</label>
+                <br/>
+            </div>
+                <span ng-show="createForm.genderG.$touched && createForm.genderG.$invalid" style="color: red">The gender is required.</span>
+                <!--<span   style="color: red" ng-hide="genderGiven">Gender is needed</span>-->
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-sm-6">
+            Department
+        </div>
+        <div class="col-sm-6">
+            <select ng-model="departmentGiven" class="form-control" name="departmentG" required>
+                <option value="" disabled selected>Choose Dept.</option>
+                <option value="{{dept.DeptId}}" ng-repeat="dept in departments">{{dept.DeptName}}</option>
+            </select>
+            <span ng-show="createForm.departmentG.$touched && createForm.departmentG.$invalid" style="color: red">The department is required.</span>
+            <!--<span class="alert" style="color: red" ng-hide="departmentGiven">Department is needed</span>-->
+        </div>
+    </div>
+    <br/>
+    <div class="row">        
+        <div class="col-sm-6 col-sm-offset-6">
+            <input ng-disabled="createForm.$invalid"  class="btn btn-primary" type="button" value="Create" ng-click="SubmitEmployee()"/>
+        </div>
+    </div>
+</form>
+
+
+
+
+
+
+
+<!--<table class="table" cellpadding="2" cellspacing="2" border="2">
+    <tr>
+        <td>
+            Name:
+        </td>
+        <td>
+            <input type="text" ng-model="nameGiven" placeholder="Enter Name here "/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Address:
+        </td>
+        <td>
+            <input type="text" ng-model="addressGiven" placeholder="Enter Address here "/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Salary:
+        </td>
+        <td>
+            <input type="text" ng-model="salaryGiven" placeholder="Enter Salary here"/>
+        </td>
+    </tr>
+     <tr>
+        <td>
+            Gender:
+        </td>
+        <td>
+            <input type="text" ng-model="genderGiven" placeholder="Input male or female"/>
+        </td>
+    </tr>
+     <tr>
+        <td>
+            Department:
+        </td>
+        <td>            
+            <select ng-model="departmentGiven" >
+                <option value="" disabled selected>Choose Dept.</option>
+                <option value="{{dept.DeptId}}" ng-repeat="dept in departments">{{dept.DeptName}}</option>
+            </select>
+        </td>
+    </tr>
+     <tr>
+        <td>
+        </td>
+        <td>
+            <input  class="btn btn-primary" type="button" value="Create" ng-click="SubmitEmployee()"/>
+        </td>
+    </tr>
+</table>-->

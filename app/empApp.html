@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myModule">
+
+<head>
+    <script src="assets/jquery-3.1.1.min.js"></script>
+    <script src="assets/jquery.validate.min.js"></script>
+    <!--<link href="assets/bootstrap.css" rel="stylesheet"></link>-->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="assets/bootstrap.js"></script>
+    <base href="/" />
+    <script src="assets/angular.min.js"></script>
+    <script src="assets/angular-route.min.js"></script>
+    <script src="assets/ngValidate.js"></script>
+    <script src="app.js"></script>
+    <script src="components/createEmployee/createEmployeeController.js"></script>
+    <script src="components/deleteEmployee/deleteEmployeeController.js"></script>
+    <script src="components/editEmployee/editEmployeeController.js"></script>
+    <script src="components/home/homeController.js"></script>
+    <script src="components/logIn/logInController.js"></script>
+    <script src="components/logOut/logOutController.js"></script>
+    <script src="components/about/aboutController.js"></script>
+    <script src="components/signUp/signUpController.js"></script>
+    <script src="components/contactUs/contactUsController.js"></script>
+    <script src="components/showEmployees/showEmployeesController.js"></script> 
+    <script src="components/Four04/Four04Controller.js"></script>
+</head>
+
+<body ng-style="heroImage">
+    <div class="container">
+        <nav class="navbar navbar-inverse ">  
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a href="/home" class="navbar-brand"><span class="glyphicon glyphicon-chevron-up"></span>OneAdvanced</a>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>                    
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">                    
+                    <ul class="nav navbar-nav" >                                                
+                        <li ng-show="true"><a href="home"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                        <li ng-show="true"><a href="about"><span class="glyphicon glyphicon-globe"></span> About</a></li>
+                        <li ng-show="true"><a href="contactUs"><span class="glyphicon glyphicon-phone-alt"></span> Contact Us</a></li>
+                        <li ng-show="logInFlag"><a href="showEmployees"><span class="glyphicon glyphicon-user"></span> Employees</a></li>
+                        <li ng-show="logInFlag"><a href="createEmployee"><span class="glyphicon glyphicon-plus"></span> Create Employee</a></li>
+                        <li ng-show="logInFlag"><a href="editEmployee"><span class="glyphicon glyphicon-pencil"></span> Edit Employee</a></li>
+                        <li ng-show="logInFlag"><a href="deleteEmployee"><span class="glyphicon glyphicon-remove"></span> Delete Employee</a></li>                        
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li ng-hide="logInFlag"><a href="logIn"><span class="glyphicon glyphicon-log-in" ></span> LogIn</a></li>
+                        <li ng-show="logInFlag"><a href="logOut"><span class="glyphicon glyphicon-log-out"></span> LogOut</a></li>
+                        <li ng-hide="logInFlag"><a href="signUp"><span class="glyphicon glyphicon-circle-arrow-right"></span> SignUp</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="panel ">
+            <div align="center" class="panel-heading" style="background-color: lightgrey;font-family: fantasy">
+                    <h3>Employee Details Application</h3>
+            </div>
+            <div class="panel-body" ng-style="BackImage" style="height: 550px; max-height:550px;overflow-y: scroll" ng-view>
+
+            </div>
+            <div align="center" style="color: rebeccapurple" class="panel-footer">
+                 &copy;<i> Advanced business and Healthcare Solutions India Private Ltd.</i>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<form name="deleteForm" style="color: white" class="col-sm-offset-3 col-sm-6">
+    <h3>Delete Employee</h3>
+    <hr/>
+    <div class="row">
+        <div class="col-sm-6">
+            Enter Employee Id to delete
+        </div>
+        <div class="col-sm-6">
+            <input type="text" class="form-control"  ng-pattern="/^[0-9]{1,7}$/" name="idG" ng-model="IdGiven" placeholder="Enter Id here" required/>
+            <span  ng-show="deleteForm.idG.$error.pattern" style="color: red">Not valid number!  </span>
+            <span ng-show="deleteForm.idG.$touched && deleteForm.idG.$error.required" style="color: red">The id is required.</span>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-6">
+            <input type="button" ng-disabled="deleteForm.$invalid" class="btn btn-primary" value="Delete" ng-click="DeleteEmployee()"/>
+        </div>
+    </div>
+    <br/>
+    <div class="row" align="middle" ng-show="msg">
+        <div class="well well-sm"  style="color: whitesmoke;background-color: lightcoral">{{msg}}</div>
+    </div>
+</form>
+
+
+<!--<table class="table" cellspacing="2" cellpadding="2" border="2">
+    <tr>
+        <td>
+            Enter Employee Id to delete:
+        </td>
+        <td>
+            <input type="text" ng-model="IdGiven" placeholder="Enter Id here"/>
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            <input type="button" class="btn btn-primary" value="Delete" ng-click="DeleteEmployee()"/>
+        </td>
+    </tr>
+</table>-->

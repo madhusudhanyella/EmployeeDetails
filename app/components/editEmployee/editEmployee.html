@@ -1,0 +1,149 @@
+<form name="editForm" style="color: white" class="col-sm-offset-3 col-sm-6">
+    <h3>Edit Employee</h3>
+    <hr/>
+    <div class="row">
+        <div class="col-sm-6">
+            Enter Employee Id to edit 
+        </div>
+        <div class="col-sm-6">
+            <input type="text" name="idG"  ng-pattern="/^[0-9]{1,7}$/" class="form-control" ng-model="IdGiven" placeholder="Enter Id here" required/>
+            <span  ng-show="editForm.idG.$error.pattern" style="color: red">Not valid number!  </span>
+            <span ng-show="editForm.idG.$touched && editForm.idG.$error.required" style="color: red">The id is required.</span>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-6">
+            <input type="button" ng-disabled="editForm.$invalid" class="btn btn-primary" value="Get Employee" ng-click="GetEmployee()"/>
+        </div>
+    </div>
+    <br/>
+    <div class="row" align="middle" ng-show="msg">
+        <div class="well well-sm" style="color: whitesmoke;background-color: lightcoral">
+            {{msg}}
+        </div>
+    </div>
+</form >
+<br/>
+<form name="updateForm" ng-show="flag" style="color: white" class="col-sm-offset-3 col-sm-6">
+    <div class="row">
+        <div class="col-sm-6">
+            Name
+        </div>
+        <div class="col-sm-6">
+           <input name="En" type="text" class="form-control" value="{{name}}" ng-model="name" required/>
+           <span style="color: red" ng-show="updateForm.En.$touched && updateForm.En.$error.required">The name is required</span>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-sm-6">
+            Address
+        </div>
+        <div class="col-sm-6">
+           <input name="Ea" type="text" class="form-control" value="{{address}}" ng-model="address" required/>
+           <span style="color: red" ng-show="updateForm.Ea.$touched && updateForm.Ea.$error.required">The address is required</span>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-sm-6">
+            Gender
+        </div>
+        <div class="col-sm-6">
+            <label class="radio-inline"><input value="Male" ng-model="gender" type="radio" name="gen">Male</label>
+            <label class="radio-inline"><input value="Female" ng-model="gender" type="radio" name="gen">Female</label>
+            <!--<input type="text" class="form-control" value="{{gender}}" ng-model="gender"/>-->
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-sm-6">
+            Salary
+        </div>
+        <div class="col-sm-6">
+           <input name="Es" type="text" ng-pattern="/^[0-9]{1,7}$/" class="form-control" value="{{salary}}" ng-model="salary" required/>
+           <span style="color: red" ng-show="updateForm.Es.$touched && updateForm.Es.$error.required">The salary is required</span>
+           <span style="color: red" ng-show="updateForm.Es.$error.pattern">Only numbers are allowed</span>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-sm-6">
+            Department
+        </div>
+        <div class="col-sm-6">
+           <select class="form-control" ng-model="department" ng-options="d.DeptId as d.DeptName for d in departments">
+                    <option value="{{d.DeptId}}">{{d.DeptName}}</option>
+                </select>
+        </div>
+    </div>
+    <br/>
+    <div class="row">        
+        <div class="col-sm-offset-6 col-sm-6">
+           <input ng-disabled="updateForm.$invalid" class="btn btn-primary" type="button" value="Update" ng-click="updateEmployee()"/>
+        </div>
+    </div>
+</form>
+
+
+
+<!--<div>
+    <table class="table" cellspacing="2" cellpadding="2" border="2">
+        <tr>
+            <td>
+                Enter Id to edit:
+            </td>
+            <td>
+                <input type="text" ng-model="IdGiven" placeholder="Enter Id here"/>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="button"  class="btn btn-primary" value="Get Employee" ng-click="GetEmployee()"/>
+            </td>
+        </tr>
+    </table>
+    <table class="table" cellspacing="2" cellpadding="2" border="2" ng-show="flag">        
+        <tr>
+            <td>Name:</td>
+            <td>
+                <input type="text" value="{{name}}" ng-model="name"/>
+            </td>
+        </tr>
+        <tr>
+            <td>Address:</td>
+            <td>
+                <input type="text" value="{{address}}" ng-model="address"/>
+            </td>
+        </tr>
+        <tr>
+            <td>Gender:</td>
+            <td>
+                <input type="text" value="{{gender}}" ng-model="gender"/>
+            </td>
+        </tr>
+        <tr>
+            <td>Salary:</td>
+            <td>
+                <input type="text" value="{{salary}}" ng-model="salary"/>
+            </td>
+        </tr>
+        <tr>
+            <td>Department:</td>
+            <td>                
+                <select ng-model="department" ng-options="d.DeptId as d.DeptName for d in departments">
+                    <option value="{{d.DeptId}}">{{d.DeptName}}</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td>
+                <input class="btn btn-primary" type="button" value="Update" ng-click="updateEmployee()"/>
+            </td>
+        </tr>
+    </table>
+</div>-->
